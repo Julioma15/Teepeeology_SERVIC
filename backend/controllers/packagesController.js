@@ -23,7 +23,6 @@ const createPackage = async (req, res) => {
       name,
       description,
       price,
-      isActive,
       type,
       capacity,
       basePrice
