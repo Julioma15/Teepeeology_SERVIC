@@ -19,7 +19,17 @@ const createReserva = async (req, res) => {
     }
 
     try {
-        const newReserva = await Reserva.create({ username, paqueteName, paqueteType, paquetePrice });
+        // Eliminar cualquier reserva existente del mismo usuario
+        await Reserva.deleteMany({ username });
+
+        // Crear la nueva reserva
+        const newReserva = await Reserva.create({
+            username,
+            paqueteName,
+            paqueteType,
+            paquetePrice
+        });
+
         res.status(201).json(newReserva);
     } catch (error) {
         res.status(500).json({ message: 'Error al crear la reserva', error: error.message });

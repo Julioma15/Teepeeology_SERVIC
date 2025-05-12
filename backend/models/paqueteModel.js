@@ -14,7 +14,7 @@ const paqueteSchema = mongoose.Schema({
         required: [true, 'El precio del paquete es obligatorio'],
     },
 }, {
-    timestamps: true, // Agrega createdAt y updatedAt automáticamente
+    timestamps: true,
 });
 
 module.exports = mongoose.model('Paquete', paqueteSchema);
