@@ -25,14 +25,14 @@ app.use(express.urlencoded({ extended: false })); // Para parsear datos de formu
 // Rutas
 app.use('/api/usuarios', require('./routes/userRoutes'));
 app.use('/api/paquetes', require('./routes/paqueteRoutes'));
-app.use('/api/reservas', require('./routes/reservasRoutes')); // Agregar rutas de reservas
-
+app.use('/api/reservaciones', require('./routes/reservacionesRoutes')); // Asegúrate de que esta línea esté presente
+app.use('/api/reservas', require('./routes/reservasRoutes'));
 // Middleware para manejar errores
 app.use(errorHandler);
 
 // Iniciar servidor
 app.listen(port, () =>
-    console.log(`Servidor iniciado en el puerto ${port}`.yellow.bold)
+    console.log(`Servidor corriendo en el puerto ${port}`.yellow.bold)
 );
 
 
