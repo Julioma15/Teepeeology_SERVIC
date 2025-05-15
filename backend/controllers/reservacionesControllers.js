@@ -21,23 +21,22 @@ const getReservaciones = async (req, res) => {
 
 // Crear una nueva reservación
 const createReservacion = async (req, res) => {
-    const { titulo, start, end } = req.body;
+    const { title, start, end } = req.body; // Cambia 'titulo' por 'title'
 
-    if (!titulo || !start || !end) {
+    if (!title || !start || !end) {
         return res.status(400).json({ message: 'Todos los campos son obligatorios' });
     }
 
     try {
         const nuevaReservacion = await Reservacion.create({
-            titulo,
+            title, // Cambia 'titulo' por 'title'
             start,
             end,
         });
 
-        // Devolver la reservación recién creada
         res.status(201).json({
             id: nuevaReservacion._id,
-            title: nuevaReservacion.titulo,
+            title: nuevaReservacion.title,
             start: nuevaReservacion.start,
             end: nuevaReservacion.end,
         });
